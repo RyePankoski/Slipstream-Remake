@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@onready var map_layer = $MapLayer
+
+
+
 const SPEED := 200.0
 const SPRINT_MULTIPLIER := 2.0
 var max_health = 100.0
@@ -9,6 +13,7 @@ var stamina = 100.0
 var stamina_drain_rate = 0.2
 var stamina_regen_rate = 0.1
 var inventory: Array = []
+var map_open = false
 
 signal stamina_changed(new_value)
 signal health_changed(new_value)
@@ -29,6 +34,11 @@ func _input(event):
 				break
 
 func _process(delta):
+	
+	if Input.is_action_just_pressed("ui_focus_next"):
+		map_open = not map_open
+		map_layer.visible = map_open
+	
 	Engine.get_frames_per_second()
 	_update_rotation(delta)
 
@@ -38,6 +48,8 @@ func _physics_process(delta):
 	_handle_stats(delta)
 	
 func _handle_stats(delta):
+	if map_open:
+		return
 	if stamina < 100:
 		stamina += stamina_regen_rate
 		stamina_changed.emit(stamina)

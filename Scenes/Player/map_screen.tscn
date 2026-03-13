@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bewq7e40ryavn"]
+
+[ext_resource type="Script" uid="uid://bkds5kqcfdt6h" path="res://Scenes/Player/map_screen.gd" id="1_3ylh6"]
+[ext_resource type="Script" uid="uid://c08kyemo2sdpb" path="res://Scenes/Player/grid_drawer.gd" id="2_dj6sc"]
+
+[node name="MapScreen" type="Control" unique_id=735381427]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3ylh6")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=2108616717]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1905241572]
+handle_input_locally = false
+size = Vector2i(40, 40)
+size_2d_override = Vector2i(2560, 1440)
+render_target_update_mode = 4
+
+[node name="GridDrawer" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=1328308895]
+script = ExtResource("2_dj6sc")
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport" unique_id=569904183]
+position = Vector2(3725, 2496)
+
+[node name="LengthLabel" type="Label" parent="." unique_id=732731803]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

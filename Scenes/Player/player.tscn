@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dhg3j0fuatu6n"]
 
 [ext_resource type="Script" uid="uid://bpjvx36t4bxmv" path="res://Scenes/Player/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://bewq7e40ryavn" path="res://Scenes/Player/map_screen.tscn" id="2_7g0yx"]
 [ext_resource type="Texture2D" uid="uid://bltcadmomykw6" path="res://Textures/Player/player_body.png" id="3_jhyir"]
 [ext_resource type="Texture2D" uid="uid://byvl6jo17jfwq" path="res://Textures/Player/flash_light.png" id="4_06tpx"]
 [ext_resource type="Texture2D" uid="uid://4asabhbjpwqj" path="res://Textures/Player/player_head.png" id="4_74mp2"]
@@ -11,8 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://jolvdh8jih6l" path="res://Sound Effects/PlayerSFX/flashLightSound.mp3" id="8_jlvik"]
 [ext_resource type="AudioStream" uid="uid://7k65jv1nr6ew" path="res://Sound Effects/PlayerSFX/pick_up.mp3" id="9_74mp2"]
 [ext_resource type="Texture2D" uid="uid://1or25yaboumy" path="res://Textures/Ship/overhead lamp.png" id="9_gk6dx"]
-[ext_resource type="PackedScene" uid="uid://f45iu84e18kf" path="res://Scenes/Player/smg.tscn" id="12_oikmp"]
-[ext_resource type="PackedScene" uid="uid://dly57827vdnh1" path="res://Scenes/Player/bullet.tscn" id="13_06tpx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
 
@@ -31,6 +30,10 @@ shape = SubResource("CircleShape2D_cvnsp")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=323820310]
 position = Vector2(-4.7683716e-07, -4.7683716e-07)
 zoom = Vector2(2, 2)
+
+[node name="MapLayer" type="CanvasLayer" parent="." unique_id=970948861]
+
+[node name="MapScreen" parent="MapLayer" unique_id=1967750479 instance=ExtResource("2_7g0yx")]
 
 [node name="HUD" parent="." unique_id=710331735 instance=ExtResource("7_0u5uq")]
 
@@ -94,7 +97,3 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_region" unique_id=1716024165]
 shape = SubResource("CircleShape2D_jhyir")
-
-[node name="smg" parent="." unique_id=1693442638 instance=ExtResource("12_oikmp")]
-
-[node name="bullet" parent="." unique_id=1989527309 instance=ExtResource("13_06tpx")]
