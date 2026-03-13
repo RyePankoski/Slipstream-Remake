@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb3liexmrfnor"
+path="res://.godot/imported/tram start.mp3-1742eebb1485d7ef0392fde2374711ba.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/general/tram start.mp3"
+dest_files=["res://.godot/imported/tram start.mp3-1742eebb1485d7ef0392fde2374711ba.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

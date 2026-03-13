@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jolvdh8jih6l"
+path="res://.godot/imported/flashLightSound.mp3-13b4b9c38538f6ab54ad06dd077c599d.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/PlayerSFX/flashLightSound.mp3"
+dest_files=["res://.godot/imported/flashLightSound.mp3-13b4b9c38538f6ab54ad06dd077c599d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

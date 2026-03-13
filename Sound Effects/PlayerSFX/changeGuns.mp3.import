@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5mynqfoj8b8t"
+path="res://.godot/imported/changeGuns.mp3-5099aafd95663b2384513ef89a734167.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/PlayerSFX/changeGuns.mp3"
+dest_files=["res://.godot/imported/changeGuns.mp3-5099aafd95663b2384513ef89a734167.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0x83f758wri2"
+path="res://.godot/imported/turnOnSearch.mp3-a4365ed086830e5ced5b6ce2f5b8a641.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/PlayerSFX/turnOnSearch.mp3"
+dest_files=["res://.godot/imported/turnOnSearch.mp3-a4365ed086830e5ced5b6ce2f5b8a641.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

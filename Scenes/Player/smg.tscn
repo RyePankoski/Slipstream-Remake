@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://f45iu84e18kf"]
+
+[ext_resource type="Script" uid="uid://cupfycnulgjrd" path="res://Scenes/Player/smg.gd" id="1_2sjhm"]
+[ext_resource type="AudioStream" uid="uid://c6vsxltbwimy7" path="res://Sound Effects/general/smgShot.mp3" id="2_2ra61"]
+[ext_resource type="PackedScene" uid="uid://dly57827vdnh1" path="res://Scenes/Player/bullet.tscn" id="2_36g2t"]
+[ext_resource type="Texture2D" uid="uid://1or25yaboumy" path="res://Textures/Ship/overhead lamp.png" id="4_ebkls"]
+
+[node name="smg" type="Node2D" unique_id=1693442638]
+script = ExtResource("1_2sjhm")
+bullet_scene = ExtResource("2_36g2t")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=1536275998]
+
+[node name="FlashTimer" type="Timer" parent="." unique_id=101054674]
+
+[node name="fire_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1046674528]
+stream = ExtResource("2_2ra61")
+volume_db = 4.0
+max_polyphony = 5
+
+[node name="muzzle_flash" type="PointLight2D" parent="." unique_id=749051364]
+enabled = false
+energy = 2.0
+texture = ExtResource("4_ebkls")
+texture_scale = 0.6

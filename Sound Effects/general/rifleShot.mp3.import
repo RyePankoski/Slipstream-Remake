@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rotd8o0i4p40"
+path="res://.godot/imported/rifleShot.mp3-437ad9b8012d351c2bf548cb2db0828b.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/general/rifleShot.mp3"
+dest_files=["res://.godot/imported/rifleShot.mp3-437ad9b8012d351c2bf548cb2db0828b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

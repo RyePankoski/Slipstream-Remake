@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://b5qxu670hljhg"]
+
+[ext_resource type="Texture2D" uid="uid://c3smew6b0c71i" path="res://Textures/Ship/tram.png" id="1_7bp8f"]
+[ext_resource type="Script" uid="uid://cq42qfyxv8614" path="res://Scenes/World/tram.gd" id="1_jpkwx"]
+[ext_resource type="Texture2D" uid="uid://buxvnul445mbd" path="res://Textures/Ship/terminal.png" id="3_02bbu"]
+[ext_resource type="Texture2D" uid="uid://iahwo4a41qec" path="res://Textures/Player/tram_light.png" id="4_jke6g"]
+[ext_resource type="Texture2D" uid="uid://1or25yaboumy" path="res://Textures/Ship/overhead lamp.png" id="5_74p75"]
+[ext_resource type="AudioStream" uid="uid://bs6o0lq3qkmd3" path="res://Sound Effects/PlayerSFX/proxBeep.mp3" id="6_w0h2s"]
+[ext_resource type="AudioStream" uid="uid://imh7fbip466v" path="res://Sound Effects/general/tramMoving.mp3" id="7_jke6g"]
+[ext_resource type="AudioStream" uid="uid://bb3liexmrfnor" path="res://Sound Effects/general/tram start.mp3" id="8_ialy5"]
+[ext_resource type="AudioStream" uid="uid://b66ugpaopptv1" path="res://Sound Effects/general/tram stop.mp3" id="9_801go"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12jty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpkwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpkwx"]
+size = Vector2(305, 172)
+
+[node name="Tram" type="Node2D" unique_id=1570427207]
+script = ExtResource("1_jpkwx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1450009438]
+texture = ExtResource("1_7bp8f")
+
+[node name="terminal_left" type="Area2D" parent="." unique_id=450763349]
+position = Vector2(-130, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="terminal_left" unique_id=2146775113]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_12jty")
+
+[node name="Sprite2D" type="Sprite2D" parent="terminal_left" unique_id=350836245]
+position = Vector2(-20, 0)
+rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_02bbu")
+
+[node name="terminal_right" type="Area2D" parent="." unique_id=256350593]
+position = Vector2(130, 0)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="terminal_right" unique_id=675445022]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_jpkwx")
+
+[node name="Sprite2D" type="Sprite2D" parent="terminal_right" unique_id=787803880]
+position = Vector2(20, 0)
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_02bbu")
+
+[node name="platform_area" type="Area2D" parent="." unique_id=1178228389]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_area" unique_id=1885507466]
+shape = SubResource("RectangleShape2D_jpkwx")
+
+[node name="Lights" type="Node2D" parent="." unique_id=910893519]
+
+[node name="central light" type="PointLight2D" parent="Lights" unique_id=211115896]
+position = Vector2(1.5258789e-05, 0)
+rotation = 3.1415925
+scale = Vector2(0.5391137, -0.6059265)
+energy = 0.8
+shadow_enabled = true
+shadow_item_cull_mask = 255
+texture = ExtResource("5_74p75")
+texture_scale = 2.0
+
+[node name="light_right" type="PointLight2D" parent="Lights" unique_id=67697505]
+position = Vector2(160, 5.456968e-12)
+rotation = 1.5707964
+scale = Vector2(0.5527344, 0.55602264)
+enabled = false
+shadow_enabled = true
+shadow_item_cull_mask = 128
+texture = ExtResource("4_jke6g")
+offset = Vector2(0, -500)
+
+[node name="light_left" type="PointLight2D" parent="Lights" unique_id=1209100496]
+position = Vector2(-160, -9.947772e-14)
+rotation = -1.5707964
+scale = Vector2(0.5527344, 0.55602264)
+enabled = false
+shadow_enabled = true
+shadow_item_cull_mask = 128
+texture = ExtResource("4_jke6g")
+offset = Vector2(0, -500)
+
+[node name="Audio" type="Node2D" parent="." unique_id=200354174]
+
+[node name="terminal_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=1255939780]
+stream = ExtResource("6_w0h2s")
+
+[node name="tram_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=607284719]
+stream = ExtResource("7_jke6g")
+
+[node name="tram_start_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=925210655]
+stream = ExtResource("8_ialy5")
+
+[node name="tram_stop_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=1868618452]
+stream = ExtResource("9_801go")
+volume_db = -10.0

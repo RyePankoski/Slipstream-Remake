@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dvei8we12mmxk"]
+
+[ext_resource type="Script" uid="uid://cplk4du01v6wp" path="res://Scenes/World/door.gd" id="1_py0e7"]
+[ext_resource type="AudioStream" uid="uid://b5ha2p76s0v6x" path="res://Sound Effects/general/openDoor.mp3" id="3_stphq"]
+[ext_resource type="AudioStream" uid="uid://n7jxkg657w1x" path="res://Sound Effects/general/doorClose.mp3" id="4_orjpq"]
+[ext_resource type="Texture2D" uid="uid://cn6iv4kmxwemp" path="res://Textures/Ship/door.png" id="4_stphq"]
+[ext_resource type="Texture2D" uid="uid://1or25yaboumy" path="res://Textures/Ship/overhead lamp.png" id="5_orjpq"]
+[ext_resource type="AudioStream" uid="uid://p5e5gowr5pt3" path="res://Sound Effects/general/lockedDoorSound.mp3" id="6_vo6ee"]
+[ext_resource type="AudioStream" uid="uid://cknl48b65jh1m" path="res://Sound Effects/general/unlockDoor.mp3" id="7_bs4jx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a1te6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uwve"]
+size = Vector2(10, 96)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bs4jx"]
+polygon = PackedVector2Array(-5, -48, -5, 48, 5, 48, 5, -48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0flh"]
+size = Vector2(130, 96)
+
+[node name="3door" type="Node2D" unique_id=849095302]
+script = ExtResource("1_py0e7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1455755908]
+collision_layer = 4607
+collision_mask = 4607
+physics_material_override = SubResource("PhysicsMaterial_a1te6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1628188725]
+light_mask = 495
+visibility_layer = 495
+shape = SubResource("RectangleShape2D_5uwve")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D" unique_id=1453909737]
+visibility_layer = 0
+occluder = SubResource("OccluderPolygon2D_bs4jx")
+
+[node name="detect player zone" type="Area2D" parent="." unique_id=2089112074]
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect player zone" unique_id=762396140]
+shape = SubResource("RectangleShape2D_s0flh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=797012644]
+visible = false
+position = Vector2(0, 2.842171e-14)
+scale = Vector2(0.01625, 0.16)
+texture = ExtResource("4_stphq")
+
+[node name="lock_light" type="PointLight2D" parent="." unique_id=1300892256]
+position = Vector2(3.8146973e-06, 3.8146973e-06)
+scale = Vector2(0.080249995, 0.080249995)
+color = Color(0, 1, 0, 1)
+texture = ExtResource("5_orjpq")
+
+[node name="Audio" type="Node2D" parent="." unique_id=2118927278]
+
+[node name="open_door_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=977195462]
+stream = ExtResource("3_stphq")
+
+[node name="door_close_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=517993823]
+stream = ExtResource("4_orjpq")
+
+[node name="locked_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=1999603692]
+stream = ExtResource("6_vo6ee")
+
+[node name="unlock_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=1710923513]
+stream = ExtResource("7_bs4jx")
+
+[connection signal="body_entered" from="detect player zone" to="." method="_on_detect_player_zone_body_entered"]
+[connection signal="body_exited" from="detect player zone" to="." method="_on_detect_player_zone_body_exited"]

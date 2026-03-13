@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs4ofatjugyrc"
+path="res://.godot/imported/Mixdown(17).mp3-b8ee284659b4d0a1fa8e0945f253ba4e.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/paVoiceLines/Mixdown(17).mp3"
+dest_files=["res://.godot/imported/Mixdown(17).mp3-b8ee284659b4d0a1fa8e0945f253ba4e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

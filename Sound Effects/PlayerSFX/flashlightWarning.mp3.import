@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://h1uxeg34sir"
+path="res://.godot/imported/flashlightWarning.mp3-bf1fcaf1f16dd7ea3d3d3daa6f106ae4.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/PlayerSFX/flashlightWarning.mp3"
+dest_files=["res://.godot/imported/flashlightWarning.mp3-bf1fcaf1f16dd7ea3d3d3daa6f106ae4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

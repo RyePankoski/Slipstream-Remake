@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1sroe0idgj74"
+path="res://.godot/imported/German(18).mp3-9d4ad601b9908988b68399303dcc17a0.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/paVoiceLines/German(18).mp3"
+dest_files=["res://.godot/imported/German(18).mp3-9d4ad601b9908988b68399303dcc17a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

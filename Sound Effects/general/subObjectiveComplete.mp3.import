@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dba68dwdgfp2v"
+path="res://.godot/imported/subObjectiveComplete.mp3-57d7b6ac9dfcb6901dce4c4bc12fdd6e.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/general/subObjectiveComplete.mp3"
+dest_files=["res://.godot/imported/subObjectiveComplete.mp3-57d7b6ac9dfcb6901dce4c4bc12fdd6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bxhgsnj2n7pw6"]
+
+[ext_resource type="Script" uid="uid://dr1wwfgueg8e3" path="res://Scenes/Player/hud.gd" id="1_h5oin"]
+
+[node name="HUD" type="CanvasLayer" unique_id=710331735]
+script = ExtResource("1_h5oin")
+
+[node name="stamina_label" type="Label" parent="." unique_id=2125908935]
+offset_right = 100.0
+offset_bottom = 25.0
+
+[node name="health_label" type="Label" parent="." unique_id=81213067]
+offset_left = 100.0
+offset_right = 200.0
+offset_bottom = 25.0
+
+[node name="r_menace_meter" type="Label" parent="." unique_id=988876393]
+offset_left = 200.0
+offset_right = 300.0
+offset_bottom = 25.0
+
+[node name="r_hunt_meter" type="Label" parent="." unique_id=311330039]
+offset_left = 300.0
+offset_right = 400.0
+offset_bottom = 25.0

@@ -1,0 +1,559 @@
+[gd_scene format=3 uid="uid://bb1k3aq8q7abx"]
+
+[ext_resource type="PackedScene" uid="uid://bxk5jrbvuodnw" path="res://Map/Slipstream map/main_map.scn" id="1_3rhlx"]
+[ext_resource type="PackedScene" uid="uid://b5qxu670hljhg" path="res://Scenes/World/tram.tscn" id="1_fcotr"]
+[ext_resource type="Texture2D" uid="uid://1or25yaboumy" path="res://Textures/Ship/overhead lamp.png" id="2_go701"]
+[ext_resource type="AudioStream" uid="uid://devxoiltbhtn5" path="res://Sound Effects/Ambience/Ambience.mp3" id="3_3rhlx"]
+[ext_resource type="AudioStream" uid="uid://cvu4giqxx0yr7" path="res://Sound Effects/Ambience/Electricity Sound Effect.mp3" id="4_l1hd3"]
+[ext_resource type="PackedScene" uid="uid://dvei8we12mmxk" path="res://Scenes/World/door.tscn" id="5_adcqc"]
+[ext_resource type="PackedScene" uid="uid://d0cin75t3neaw" path="res://Scenes/World/objects/key_card.tscn" id="7_7staa"]
+[ext_resource type="Texture2D" uid="uid://cq8gwkkcqryds" path="res://Textures/Player/los light.png" id="7_fcotr"]
+
+[sub_resource type="GDScript" id="GDScript_adcqc"]
+script/source = "extends PointLight2D
+
+@export var flicker_speed: float = 1.0
+@export var flicker_intensity: float = 0.2
+@export var base_energy: float = 1.0
+
+func _process(delta):
+	energy = base_energy + randf_range(-flicker_intensity, flicker_intensity)
+"
+
+[sub_resource type="GDScript" id="GDScript_7staa"]
+script/source = "extends Node
+
+@export var min_interval: float = 30.0
+@export var max_interval: float = 120.0
+
+var announcements = []
+var player: AudioStreamPlayer
+var timer: Timer
+
+func _ready():
+	player = AudioStreamPlayer.new()
+	add_child(player)
+	
+	timer = Timer.new()
+	timer.one_shot = true
+	timer.timeout.connect(_play_announcement)
+	add_child(timer)
+	
+	var dir = DirAccess.open(\"res://Sound Effects/paVoiceLines/\")
+	for file in dir.get_files():
+		if file.ends_with(\".mp3\"):
+			announcements.append(load(\"res://Sound Effects/paVoiceLines/\" + file))
+	
+	_queue_next()
+
+func _play_announcement():
+	player.stream = announcements[randi() % announcements.size()]
+	player.play()
+	await player.finished
+	_queue_next()
+
+func _queue_next():
+	timer.wait_time = randf_range(min_interval, max_interval)
+	timer.start()
+"
+
+[node name="World" type="Node2D" unique_id=564764427]
+z_index = -1
+
+[node name="Darkness layer" type="CanvasModulate" parent="." unique_id=1319627283]
+color = Color(0, 0, 0, 1)
+
+[node name="Map" type="Node2D" parent="." unique_id=142656582]
+
+[node name="main_map" parent="Map" unique_id=754202234 instance=ExtResource("1_3rhlx")]
+position = Vector2(2, 0)
+
+[node name="main_map2" parent="Map" unique_id=427607445 instance=ExtResource("1_3rhlx")]
+position = Vector2(2, 0)
+
+[node name="Lights" type="Node2D" parent="." unique_id=96296232]
+
+[node name="reception" type="Node" parent="Lights" unique_id=2106032512]
+
+[node name="Reception glow" type="PointLight2D" parent="Lights/reception" unique_id=810067631]
+position = Vector2(8517.5, 9492.751)
+scale = Vector2(2.1550002, 0.9735008)
+energy = 0.2
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception glow3" type="PointLight2D" parent="Lights/reception" unique_id=1514584466]
+position = Vector2(8252.75, 8285.875)
+scale = Vector2(1.6445004, 1.4377505)
+energy = 0.2
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 1" type="PointLight2D" parent="Lights/reception" unique_id=698206160]
+light_mask = 495
+position = Vector2(7824.981, 9802.001)
+rotation = -3.1415927
+scale = Vector2(0.5391137, -0.6059265)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 18" type="PointLight2D" parent="Lights/reception" unique_id=1967558186]
+position = Vector2(15025, 10040)
+rotation = -3.1415927
+scale = Vector2(0.5391137, -0.6059265)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 17" type="PointLight2D" parent="Lights/reception" unique_id=1957200733]
+position = Vector2(476.30762, 361.51282)
+rotation = -3.1415927
+scale = Vector2(0.93665206, -0.19864434)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+texture_scale = 2.0
+
+[node name="Reception 3" type="PointLight2D" parent="Lights/reception" unique_id=214992033]
+position = Vector2(7892.8125, 9149.834)
+scale = Vector2(0.19837509, 0.29633304)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 5" type="PointLight2D" parent="Lights/reception" unique_id=1816475967]
+position = Vector2(7892.8125, 9149.834)
+scale = Vector2(0.19837509, 0.29633304)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 4" type="PointLight2D" parent="Lights/reception" unique_id=986200624]
+position = Vector2(8162.1563, 9153.167)
+scale = Vector2(0.3476877, 0.28566664)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 6" type="PointLight2D" parent="Lights/reception" unique_id=1018105887]
+position = Vector2(8432.078, 9187.417)
+scale = Vector2(0.19584392, 0.16683434)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 7" type="PointLight2D" parent="Lights/reception" unique_id=120179087]
+position = Vector2(8461.039, 9430.208)
+scale = Vector2(0.56392187, 0.13441764)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 12" type="PointLight2D" parent="Lights/reception" unique_id=732193744]
+position = Vector2(8284.02, 9586.6045)
+scale = Vector2(0.1839597, 0.19920903)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 13" type="PointLight2D" parent="Lights/reception" unique_id=2083275444]
+position = Vector2(8558.01, 9582.697)
+scale = Vector2(0.36398005, 0.19460388)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 14" type="PointLight2D" parent="Lights/reception" unique_id=1773759368]
+position = Vector2(8625.505, 9832.349)
+scale = Vector2(0.26699004, 0.29130146)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 8" type="PointLight2D" parent="Lights/reception" unique_id=1319841660]
+position = Vector2(8689.5205, 9185.6045)
+scale = Vector2(0.10896028, 0.3532086)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 9" type="PointLight2D" parent="Lights/reception" unique_id=357523386]
+position = Vector2(8906.759, 9068.802)
+scale = Vector2(0.3224807, 0.11960457)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 10" type="PointLight2D" parent="Lights/reception" unique_id=1964214284]
+position = Vector2(8911.88, 9472.099)
+scale = Vector2(0.32024035, 0.6758023)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 11" type="PointLight2D" parent="Lights/reception" unique_id=1878435900]
+position = Vector2(9163.44, 9921.95)
+scale = Vector2(0.82912046, 0.10990168)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 2" type="PointLight2D" parent="Lights/reception" unique_id=918801100]
+position = Vector2(8326.07, 9830.875)
+scale = Vector2(0.44482416, 0.4829158)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 15" type="PointLight2D" parent="Lights/reception" unique_id=13238594]
+position = Vector2(7889.294, 9553.7295)
+scale = Vector2(0.56541234, 0.12745771)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 16" type="PointLight2D" parent="Lights/reception" unique_id=1474477818]
+position = Vector2(8110.647, 9798.135)
+scale = Vector2(0.13470618, 0.35972947)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lights/reception" unique_id=1570269403]
+position = Vector2(7526.999, 8416.47)
+scale = Vector2(0.33487973, 2.87694)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Lights/reception" unique_id=1859872467]
+position = Vector2(9140, 6283)
+scale = Vector2(0.33487973, 2.87694)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lights/reception" unique_id=1368615152]
+position = Vector2(7511.0005, 7464)
+scale = Vector2(3.7414076, 0.2920001)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Lights/reception" unique_id=1359603933]
+position = Vector2(10268.5, 7470)
+scale = Vector2(3.973, 0.24799977)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights/reception" unique_id=860044492]
+position = Vector2(7525.5, 9621.499)
+scale = Vector2(0.16900045, 0.71300143)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+script = SubResource("GDScript_adcqc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Lights/reception/PointLight2D" unique_id=2023075451]
+stream = ExtResource("4_l1hd3")
+volume_db = -5.0
+autoplay = true
+attenuation = 8.0
+
+[node name="Tram" parent="." unique_id=1570427207 instance=ExtResource("1_fcotr")]
+light_mask = 129
+visibility_layer = 129
+position = Vector2(9137, 4961)
+
+[node name="Audio" type="Node2D" parent="." unique_id=189039800]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="Audio" unique_id=431247236]
+stream = ExtResource("3_3rhlx")
+autoplay = true
+
+[node name="PA" type="AudioStreamPlayer" parent="Audio" unique_id=2094533229]
+script = SubResource("GDScript_7staa")
+
+[node name="Doors" type="Node2D" parent="." unique_id=334168982]
+
+[node name="door3" parent="Doors" unique_id=849095302 instance=ExtResource("5_adcqc")]
+position = Vector2(7600, 8912)
+
+[node name="door" parent="Doors" unique_id=1295011453 instance=ExtResource("5_adcqc")]
+position = Vector2(7826, 9616)
+rotation = 1.5707964
+
+[node name="door2" parent="Doors" unique_id=1399596038 instance=ExtResource("5_adcqc")]
+position = Vector2(7600, 9552)
+required_key_id = 999
+locked = true
+
+[node name="door4" parent="Doors" unique_id=241681713 instance=ExtResource("5_adcqc")]
+position = Vector2(7792, 9392)
+
+[node name="door8" parent="Doors" unique_id=1029387001 instance=ExtResource("5_adcqc")]
+position = Vector2(8371, 9584)
+required_key_id = 998
+locked = true
+
+[node name="door10" parent="Doors" unique_id=1971632745 instance=ExtResource("5_adcqc")]
+position = Vector2(8176, 9744)
+
+[node name="door5" parent="Doors" unique_id=1456255058 instance=ExtResource("5_adcqc")]
+position = Vector2(7984, 9104)
+
+[node name="door20" parent="Doors" unique_id=1352435506 instance=ExtResource("5_adcqc")]
+position = Vector2(9202, 8593)
+
+[node name="door57" parent="Doors" unique_id=551069690 instance=ExtResource("5_adcqc")]
+position = Vector2(9780, 8944)
+
+[node name="door58" parent="Doors" unique_id=1348007399 instance=ExtResource("5_adcqc")]
+position = Vector2(10259, 9392)
+
+[node name="door67" parent="Doors" unique_id=1443728980 instance=ExtResource("5_adcqc")]
+position = Vector2(11314, 8752)
+
+[node name="door28" parent="Doors" unique_id=1670078328 instance=ExtResource("5_adcqc")]
+position = Vector2(9203, 8432)
+
+[node name="door35" parent="Doors" unique_id=1447771902 instance=ExtResource("5_adcqc")]
+position = Vector2(10008, 8017)
+
+[node name="door36" parent="Doors" unique_id=1967271633 instance=ExtResource("5_adcqc")]
+position = Vector2(9714, 7824)
+
+[node name="door37" parent="Doors" unique_id=585306753 instance=ExtResource("5_adcqc")]
+position = Vector2(9586, 7824)
+
+[node name="door38" parent="Doors" unique_id=75291089 instance=ExtResource("5_adcqc")]
+position = Vector2(9586, 8209)
+
+[node name="door48" parent="Doors" unique_id=234303024 instance=ExtResource("5_adcqc")]
+position = Vector2(11506, 7472)
+
+[node name="door49" parent="Doors" unique_id=49402143 instance=ExtResource("5_adcqc")]
+position = Vector2(11314, 6192)
+
+[node name="door39" parent="Doors" unique_id=1870621643 instance=ExtResource("5_adcqc")]
+position = Vector2(9714, 8209)
+
+[node name="door56" parent="Doors" unique_id=413350103 instance=ExtResource("5_adcqc")]
+position = Vector2(13522, 8336)
+
+[node name="door69" parent="Doors" unique_id=360273634 instance=ExtResource("5_adcqc")]
+position = Vector2(13714, 8496)
+
+[node name="door12" parent="Doors" unique_id=1982479713 instance=ExtResource("5_adcqc")]
+position = Vector2(8272, 8592)
+
+[node name="door24" parent="Doors" unique_id=841314626 instance=ExtResource("5_adcqc")]
+position = Vector2(8400, 8080)
+
+[node name="door19" parent="Doors" unique_id=1707770190 instance=ExtResource("5_adcqc")]
+position = Vector2(8944, 8623)
+
+[node name="door13" parent="Doors" unique_id=723346826 instance=ExtResource("5_adcqc")]
+position = Vector2(8144, 8239)
+
+[node name="door29" parent="Doors" unique_id=107859146 instance=ExtResource("5_adcqc")]
+position = Vector2(9202, 7280)
+
+[node name="door31" parent="Doors" unique_id=206954981 instance=ExtResource("5_adcqc")]
+position = Vector2(9073, 6288)
+
+[node name="door6" parent="Doors" unique_id=1683803985 instance=ExtResource("5_adcqc")]
+position = Vector2(7890, 9296)
+rotation = 1.5707964
+
+[node name="door11" parent="Doors" unique_id=413383205 instance=ExtResource("5_adcqc")]
+position = Vector2(7695, 9008)
+rotation = 1.5707964
+
+[node name="door14" parent="Doors" unique_id=2057335537 instance=ExtResource("5_adcqc")]
+position = Vector2(8336, 8688)
+rotation = 1.5707964
+
+[node name="door15" parent="Doors" unique_id=558777672 instance=ExtResource("5_adcqc")]
+position = Vector2(8496, 8560)
+rotation = 1.5707964
+
+[node name="door16" parent="Doors" unique_id=2135368933 instance=ExtResource("5_adcqc")]
+position = Vector2(7920, 8400)
+rotation = 1.5707964
+
+[node name="door17" parent="Doors" unique_id=1729661338 instance=ExtResource("5_adcqc")]
+position = Vector2(8337, 8016)
+rotation = 1.5707964
+
+[node name="door46" parent="Doors" unique_id=755799184 instance=ExtResource("5_adcqc")]
+position = Vector2(5009, 7377)
+rotation = 1.5707964
+
+[node name="door50" parent="Doors" unique_id=1950563376 instance=ExtResource("5_adcqc")]
+position = Vector2(4818, 7378)
+rotation = 1.5707964
+
+[node name="door47" parent="Doors" unique_id=1814079561 instance=ExtResource("5_adcqc")]
+position = Vector2(5201, 7376)
+rotation = 1.5707964
+
+[node name="door18" parent="Doors" unique_id=511548532 instance=ExtResource("5_adcqc")]
+position = Vector2(7697, 7920)
+rotation = 1.5707964
+
+[node name="door25" parent="Doors" unique_id=125022321 instance=ExtResource("5_adcqc")]
+position = Vector2(8978, 7568)
+rotation = 1.5707964
+
+[node name="door26" parent="Doors" unique_id=722021198 instance=ExtResource("5_adcqc")]
+position = Vector2(9137, 7568)
+rotation = 1.5707964
+
+[node name="door27" parent="Doors" unique_id=73343463 instance=ExtResource("5_adcqc")]
+position = Vector2(9138, 7376)
+rotation = 1.5707964
+
+[node name="door30" parent="Doors" unique_id=385907995 instance=ExtResource("5_adcqc")]
+position = Vector2(9297, 7184)
+rotation = 1.5707964
+
+[node name="door33" parent="Doors" unique_id=368233336 instance=ExtResource("5_adcqc")]
+position = Vector2(10258, 7119)
+rotation = 1.5707964
+
+[node name="door34" parent="Doors" unique_id=1413313126 instance=ExtResource("5_adcqc")]
+position = Vector2(10258, 5264)
+rotation = 1.5707964
+
+[node name="door32" parent="Doors" unique_id=1312358090 instance=ExtResource("5_adcqc")]
+position = Vector2(9138, 5232)
+rotation = 1.5707964
+
+[node name="door42" parent="Doors" unique_id=1959920006 instance=ExtResource("5_adcqc")]
+position = Vector2(9138, 4689)
+rotation = 1.5707964
+
+[node name="door43" parent="Doors" unique_id=1124983818 instance=ExtResource("5_adcqc")]
+position = Vector2(9137, 4175)
+rotation = 1.5707964
+
+[node name="door44" parent="Doors" unique_id=865571141 instance=ExtResource("5_adcqc")]
+position = Vector2(9137, 4048)
+rotation = 1.5707964
+
+[node name="door45" parent="Doors" unique_id=647151412 instance=ExtResource("5_adcqc")]
+position = Vector2(9137, 3920)
+rotation = 1.5707964
+
+[node name="door7" parent="Doors" unique_id=425462435 instance=ExtResource("5_adcqc")]
+position = Vector2(8243, 9489)
+rotation = 1.5707964
+
+[node name="door9" parent="Doors" unique_id=1609154920 instance=ExtResource("5_adcqc")]
+position = Vector2(8242, 9680)
+rotation = 4.712389
+
+[node name="door21" parent="Doors" unique_id=1947387664 instance=ExtResource("5_adcqc")]
+position = Vector2(9522, 9872)
+rotation = 1.5707964
+locked = true
+
+[node name="door22" parent="Doors" unique_id=1751486741 instance=ExtResource("5_adcqc")]
+position = Vector2(9523, 9584)
+rotation = 1.5707964
+
+[node name="door23" parent="Doors" unique_id=1840928504 instance=ExtResource("5_adcqc")]
+position = Vector2(9522, 9137)
+rotation = 1.5707964
+
+[node name="door64" parent="Doors" unique_id=211585859 instance=ExtResource("5_adcqc")]
+position = Vector2(11602, 8655)
+rotation = 1.5707964
+
+[node name="door65" parent="Doors" unique_id=484296092 instance=ExtResource("5_adcqc")]
+position = Vector2(11410, 8655)
+rotation = 1.5707964
+
+[node name="door66" parent="Doors" unique_id=123405635 instance=ExtResource("5_adcqc")]
+position = Vector2(9682, 8848)
+rotation = 1.5707964
+
+[node name="door59" parent="Doors" unique_id=156860339 instance=ExtResource("5_adcqc")]
+position = Vector2(11218, 9040)
+rotation = 1.5707964
+
+[node name="door60" parent="Doors" unique_id=563683884 instance=ExtResource("5_adcqc")]
+position = Vector2(10865, 9168)
+rotation = 1.5707964
+
+[node name="door61" parent="Doors" unique_id=1406956364 instance=ExtResource("5_adcqc")]
+position = Vector2(10001, 9487)
+rotation = 1.5707964
+
+[node name="door63" parent="Doors" unique_id=14432144 instance=ExtResource("5_adcqc")]
+position = Vector2(10354, 9295)
+rotation = 1.5707964
+
+[node name="door62" parent="Doors" unique_id=842210911 instance=ExtResource("5_adcqc")]
+position = Vector2(10001, 9618)
+rotation = 1.5707964
+
+[node name="door40" parent="Doors" unique_id=984506472 instance=ExtResource("5_adcqc")]
+position = Vector2(11442, 8400)
+rotation = 1.5707964
+
+[node name="door41" parent="Doors" unique_id=684277872 instance=ExtResource("5_adcqc")]
+position = Vector2(12178, 8401)
+rotation = 1.5707964
+
+[node name="door52" parent="Doors" unique_id=1036770126 instance=ExtResource("5_adcqc")]
+position = Vector2(11602, 7664)
+rotation = 1.5707964
+
+[node name="door53" parent="Doors" unique_id=1627131666 instance=ExtResource("5_adcqc")]
+position = Vector2(13297, 7663)
+rotation = 1.5707964
+
+[node name="door54" parent="Doors" unique_id=646187998 instance=ExtResource("5_adcqc")]
+position = Vector2(13298, 7793)
+rotation = 1.5707964
+
+[node name="door55" parent="Doors" unique_id=1909965619 instance=ExtResource("5_adcqc")]
+position = Vector2(13298, 7920)
+rotation = 1.5707964
+
+[node name="door68" parent="Doors" unique_id=935572643 instance=ExtResource("5_adcqc")]
+position = Vector2(13618, 8400)
+rotation = 1.5707964
+
+[node name="door51" parent="Doors" unique_id=1331412191 instance=ExtResource("5_adcqc")]
+position = Vector2(12562, 8400)
+rotation = 1.5707964
+
+[node name="Key Cards" type="Node2D" parent="." unique_id=418600900]
+
+[node name="key_card" parent="Key Cards" unique_id=1706266206 instance=ExtResource("7_7staa")]
+z_index = 0
+position = Vector2(9510, 9955)
+key_id = 998
+
+[node name="key_card2" parent="Key Cards" unique_id=20294466 instance=ExtResource("7_7staa")]
+z_index = 0
+position = Vector2(8601, 9606)
+key_id = 999
+
+[node name="Particle Effects" type="Node2D" parent="." unique_id=797224539]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Particle Effects" unique_id=949584426]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=942724157]
+visible = false
+position = Vector2(2, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1455236065]
+position = Vector2(13059, 4959)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_fcotr")

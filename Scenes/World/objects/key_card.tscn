@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0cin75t3neaw"]
+
+[ext_resource type="Texture2D" uid="uid://dpp7hqgpjhtcg" path="res://Textures/Ship/key_card.png" id="1_1tf3w"]
+[ext_resource type="Script" uid="uid://lmfy5te24f3o" path="res://Scenes/World/objects/key_card.gd" id="1_urt5n"]
+[ext_resource type="Script" uid="uid://bo4ewg8jtc3qp" path="res://Scenes/World/objects/key_card_detect_area.gd" id="3_7eeku"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyryr"]
+
+[node name="key_card" type="Node2D" unique_id=1706266206]
+z_index = 1
+script = ExtResource("1_urt5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=430206830]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_1tf3w")
+
+[node name="key_card_detect_area" type="Area2D" parent="." unique_id=1341460983]
+script = ExtResource("3_7eeku")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="key_card_detect_area" unique_id=569776288]
+shape = SubResource("CircleShape2D_cyryr")

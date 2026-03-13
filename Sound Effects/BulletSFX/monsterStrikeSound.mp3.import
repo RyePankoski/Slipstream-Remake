@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cg8oxly53gklp"
+path="res://.godot/imported/monsterStrikeSound.mp3-6cd1e18d5c1a9e0cff15553c33ac99ed.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/BulletSFX/monsterStrikeSound.mp3"
+dest_files=["res://.godot/imported/monsterStrikeSound.mp3-6cd1e18d5c1a9e0cff15553c33ac99ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

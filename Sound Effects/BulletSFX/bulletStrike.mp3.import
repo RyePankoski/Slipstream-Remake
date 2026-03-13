@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dji4au1ay0qkt"
+path="res://.godot/imported/bulletStrike.mp3-10d7dff7fe2670232b59ff256e63a7b7.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/BulletSFX/bulletStrike.mp3"
+dest_files=["res://.godot/imported/bulletStrike.mp3-10d7dff7fe2670232b59ff256e63a7b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byqw6d7sahv3q"
+path="res://.godot/imported/rifleReload.mp3-75cb3728a8e0842fc68de70692c7b52c.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/general/rifleReload.mp3"
+dest_files=["res://.godot/imported/rifleReload.mp3-75cb3728a8e0842fc68de70692c7b52c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

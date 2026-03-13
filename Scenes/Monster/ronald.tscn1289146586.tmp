@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dtnhb1bo11tka"]
+
+[ext_resource type="Script" uid="uid://bob26bj6kym6c" path="res://Scenes/Monster/ronald.gd" id="1_1nyy8"]
+[ext_resource type="Texture2D" uid="uid://dytx2su718sem" path="res://Textures/Ronald/monster.png" id="2_buas0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw00y"]
+radius = 34.0147
+
+[node name="Ronald" type="CharacterBody2D" unique_id=2031652375]
+script = ExtResource("1_1nyy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930540073]
+shape = SubResource("CircleShape2D_nw00y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=705305252]
+texture = ExtResource("2_buas0")

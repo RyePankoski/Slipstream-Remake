@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b5qxu670hljhg"]
+
+[ext_resource type="Texture2D" uid="uid://c3smew6b0c71i" path="res://Textures/Ship/tram.png" id="1_7bp8f"]
+[ext_resource type="Script" uid="uid://cq42qfyxv8614" path="res://Scenes/World/tram.gd" id="1_jpkwx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12jty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpkwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpkwx"]
+size = Vector2(305, 172)
+
+[node name="Tram" type="Node2D" unique_id=1570427207]
+script = ExtResource("1_jpkwx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1450009438]
+texture = ExtResource("1_7bp8f")
+
+[node name="terminal_left" type="Area2D" parent="." unique_id=450763349]
+position = Vector2(-130, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="terminal_left" unique_id=2146775113]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_12jty")
+
+[node name="terminal_right" type="Area2D" parent="." unique_id=256350593]
+position = Vector2(130, 0)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="terminal_right" unique_id=675445022]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_jpkwx")
+
+[node name="platform_area" type="Area2D" parent="." unique_id=1178228389]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_area" unique_id=1885507466]
+shape = SubResource("RectangleShape2D_jpkwx")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cknl48b65jh1m"
+path="res://.godot/imported/unlockDoor.mp3-05e3f7e43a8e3321b1b12a6ee2510bb7.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/general/unlockDoor.mp3"
+dest_files=["res://.godot/imported/unlockDoor.mp3-05e3f7e43a8e3321b1b12a6ee2510bb7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

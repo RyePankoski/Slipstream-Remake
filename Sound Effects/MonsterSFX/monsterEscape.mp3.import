@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgqwwgrqbbbmr"
+path="res://.godot/imported/monsterEscape.mp3-a4a2ab487eb7901fd8bbfbe01a26bcee.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/MonsterSFX/monsterEscape.mp3"
+dest_files=["res://.godot/imported/monsterEscape.mp3-a4a2ab487eb7901fd8bbfbe01a26bcee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

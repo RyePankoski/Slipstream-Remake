@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dhg3j0fuatu6n"]
+
+[ext_resource type="Script" uid="uid://bpjvx36t4bxmv" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://bc1hupo3uvolp" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://dvpw324md1gbk" path="res://Textures/Player/flashlight.png" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://c5ei45mrdbe2j" path="res://Scenes/fo_vmesh.gd" id="4_vgqql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
+
+[node name="player" type="CharacterBody2D" unique_id=335188821]
+script = ExtResource("1_cvnsp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=323820310]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.14843751, 0.14843751)
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869606347]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.14843753, 0.14843753)
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=983752111]
+shape = SubResource("CircleShape2D_cvnsp")
+
+[node name="flashlight" type="PointLight2D" parent="." unique_id=1619496518]
+position = Vector2(0, 1)
+scale = Vector2(0.5527344, 0.5527344)
+shadow_enabled = true
+texture = ExtResource("3_6t5aa")
+offset = Vector2(0, -500)
+
+[node name="FOVmesh" type="Polygon2D" parent="." unique_id=295990939]
+invert_enabled = true
+script = ExtResource("4_vgqql")

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dtnhb1bo11tka"]
+
+[ext_resource type="Script" uid="uid://bob26bj6kym6c" path="res://Scenes/Monster/ronald.gd" id="1_y70n8"]
+[ext_resource type="Script" uid="uid://c1207wfruhnax" path="res://Scenes/Monster/ai.gd" id="2_1nyy8"]
+[ext_resource type="Texture2D" uid="uid://dytx2su718sem" path="res://Textures/Ronald/monster.png" id="2_buas0"]
+[ext_resource type="Script" uid="uid://b8s20mhpwmcka" path="res://Scenes/Monster/movement.gd" id="2_nw00y"]
+[ext_resource type="Script" uid="uid://icxhpw3na4ca" path="res://Scenes/Monster/a_star.gd" id="4_wubex"]
+[ext_resource type="Script" uid="uid://depfxktoy4c7o" path="res://Scenes/Monster/senses.gd" id="5_y70n8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw00y"]
+radius = 34.0147
+
+[node name="Ronald" type="CharacterBody2D" unique_id=2031652375]
+script = ExtResource("1_y70n8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930540073]
+shape = SubResource("CircleShape2D_nw00y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=705305252]
+texture = ExtResource("2_buas0")
+
+[node name="Brain" type="Node" parent="." unique_id=564229742]
+
+[node name="AI" type="Node" parent="Brain" unique_id=1992525712]
+script = ExtResource("2_1nyy8")
+
+[node name="A*" type="Node" parent="Brain" unique_id=235550170]
+script = ExtResource("4_wubex")
+
+[node name="Movement" type="Node" parent="Brain" unique_id=859166607]
+script = ExtResource("2_nw00y")
+
+[node name="Senses" type="Node" parent="Brain" unique_id=643398336]
+script = ExtResource("5_y70n8")

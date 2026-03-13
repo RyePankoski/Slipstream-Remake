@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5ha2p76s0v6x"
+path="res://.godot/imported/openDoor.mp3-778da43ce524f83bf8c46992debcea09.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/general/openDoor.mp3"
+dest_files=["res://.godot/imported/openDoor.mp3-778da43ce524f83bf8c46992debcea09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

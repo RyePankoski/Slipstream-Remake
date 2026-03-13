@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4he0gsgq4cmo"
+path="res://.godot/imported/shutDownAlert.mp3-ef3caa37fbecc20366a36441df5a8f63.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/general/shutDownAlert.mp3"
+dest_files=["res://.godot/imported/shutDownAlert.mp3-ef3caa37fbecc20366a36441df5a8f63.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

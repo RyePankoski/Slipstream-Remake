@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7ts7qsi4gkh4"
+path="res://.godot/imported/searchStatic.mp3-0e64c35643fb77500fb33ff22ffdbefa.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/PlayerSFX/searchStatic.mp3"
+dest_files=["res://.godot/imported/searchStatic.mp3-0e64c35643fb77500fb33ff22ffdbefa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btsc38lleo3dr"
+path="res://.godot/imported/smgReload.mp3-81652ff26eaf2d8f8b514a6c05d91103.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/general/smgReload.mp3"
+dest_files=["res://.godot/imported/smgReload.mp3-81652ff26eaf2d8f8b514a6c05d91103.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ds8lbqtmlfnhf"]
+
+[ext_resource type="PackedScene" uid="uid://bb1k3aq8q7abx" path="res://Scenes/World/world.tscn" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://bpxbnanh48hox" path="res://Scenes/Main/main.gd" id="1_qw60k"]
+[ext_resource type="PackedScene" uid="uid://dhg3j0fuatu6n" path="res://Scenes/Player/player.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dtnhb1bo11tka" path="res://Scenes/Monster/ronald.tscn" id="4_5yls4"]
+
+[node name="Main" type="Node2D" unique_id=1961006506]
+script = ExtResource("1_qw60k")
+
+[node name="player" parent="." unique_id=335188821 instance=ExtResource("2_8gbba")]
+position = Vector2(7817, 9830)
+
+[node name="Ronald" parent="." unique_id=2031652375 instance=ExtResource("4_5yls4")]
+z_index = 0
+position = Vector2(8319, 9814)
+
+[node name="World" parent="." unique_id=564764427 instance=ExtResource("1_bo1nx")]
