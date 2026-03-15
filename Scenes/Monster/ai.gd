@@ -3,7 +3,7 @@ extends Node
 enum State { INACTIVE, HUNTING, CHASING, FLEEING }
 var state = State.INACTIVE
 
-@export var menace_radius: float = 1000.0
+@export var menace_radius: float = 1500.0
 @export var flee_distance: float = 5000.0
 @export var wander_interval: float = 10.0
 @export var hunt_threshold: float = 100.0

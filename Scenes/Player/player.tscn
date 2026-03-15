@@ -27,7 +27,7 @@ script = ExtResource("1_cvnsp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=983752111]
 shape = SubResource("CircleShape2D_cvnsp")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=323820310]
+[node name="PlayerCamera2D" type="Camera2D" parent="." unique_id=323820310]
 position = Vector2(-4.7683716e-07, -4.7683716e-07)
 zoom = Vector2(2, 2)
 

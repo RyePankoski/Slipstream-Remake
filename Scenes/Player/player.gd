@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 @onready var map_layer = $MapLayer
 
-
-
 const SPEED := 200.0
 const SPRINT_MULTIPLIER := 2.0
 var max_health = 100.0
@@ -15,12 +13,16 @@ var stamina_regen_rate = 0.1
 var inventory: Array = []
 var map_open = false
 
+
 signal stamina_changed(new_value)
 signal health_changed(new_value)
 
+var monster_cam = false
 var item_type 
 
 func _ready():
+	map_open = false
+	map_layer.visible = map_open
 	$HUD.setup(self)
 	add_to_group("player")
 	
@@ -32,9 +34,9 @@ func _input(event):
 				if item_type == "key_card":
 					$Audio/generic_pickup.play()
 				break
+		
 
 func _process(delta):
-	
 	if Input.is_action_just_pressed("ui_focus_next"):
 		map_open = not map_open
 		map_layer.visible = map_open

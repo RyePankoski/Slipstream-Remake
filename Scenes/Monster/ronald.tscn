@@ -15,6 +15,8 @@ radius = 0.0
 z_index = 1
 script = ExtResource("1_y70n8")
 
+[node name="MonsterCamera2D" type="Camera2D" parent="." unique_id=1647437131]
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=994820507]
 path_postprocessing = 1
 simplify_epsilon = 1.0
