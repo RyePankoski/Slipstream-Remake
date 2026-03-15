@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b08w7vevnwh4k"]
+
+[ext_resource type="Script" uid="uid://c81bt7iw5p32d" path="res://Scenes/World/meta/ai_director.gd" id="1_7xqmn"]
+
+[node name="AI_Director" type="Node" unique_id=1619704085]
+script = ExtResource("1_7xqmn")

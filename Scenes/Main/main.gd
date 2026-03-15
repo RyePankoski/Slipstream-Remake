@@ -7,7 +7,7 @@ var interactables = []
 
 func _ready():
 	print(get_parent().get_children())
-	player = get_node("player")
+	player = $Player
 	interactables = get_tree().get_nodes_in_group("interactables")
 	for obj in interactables:
 		obj.process_mode = Node.PROCESS_MODE_DISABLED

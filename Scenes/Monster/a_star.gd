@@ -11,9 +11,10 @@ func _ready():
 	print("floor_map: ", floor_map)
 	print("collision_map: ", collision_map)
 
-func get_random_valid_point() -> Vector2:
+# Renamed parameter from `range` to `attempts` to avoid shadowing the built-in range() function.
+func get_random_valid_point(attempts: int) -> Vector2:
 	var map_rect = floor_map.get_used_rect()
-	for i in range(100):
+	for i in range(attempts):
 		var cell = Vector2i(
 			randi_range(map_rect.position.x, map_rect.position.x + map_rect.size.x),
 			randi_range(map_rect.position.y, map_rect.position.y + map_rect.size.y)

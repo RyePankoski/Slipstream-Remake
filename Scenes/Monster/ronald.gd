@@ -16,7 +16,7 @@ func _input(event):
 			$MonsterCamera2D.make_current()
 			monster_cam = true
 		else:
-			get_node("/root/Main/player/PlayerCamera2D").make_current()
+			get_node("/root/Main/Player/PlayerCamera2D").make_current()
 			monster_cam = false
 
 func _draw():

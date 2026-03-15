@@ -16,10 +16,10 @@ func follow_path(delta):
 		ronald.velocity = Vector2.ZERO
 		ronald.move_and_slide()
 		return
-	
+
 	var next = nav.get_next_path_position()
 	var direction = (next - ronald.global_position).normalized()
-	
+
 	if ai.state == ai.State.FLEEING:
 		ronald.velocity = direction * move_speed * 2.2
 	elif ai.state == ai.State.INACTIVE:
@@ -31,8 +31,18 @@ func follow_path(delta):
 
 	ronald.move_and_slide()
 
-func set_target(target: Vector2):
-	nav.target_position = target
-
 func is_path_done() -> bool:
 	return nav.is_navigation_finished()
+
+func abandon_path():
+	nav.target_position = ronald.global_position
+
+func get_path_timeout(slack: float = 2.0) -> float:
+	var path = nav.get_current_navigation_path()
+	if path.size() < 2:
+		return 0.0
+	var total_distance := 0.0
+	for i in range(path.size() - 1):
+		total_distance += path[i].distance_to(path[i + 1])
+	var effective_speed = move_speed  # caller can scale if needed
+	return (total_distance / effective_speed) * slack
