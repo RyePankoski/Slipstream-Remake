@@ -6,25 +6,37 @@
 script = ExtResource("1_h5oin")
 
 [node name="stamina_label" type="Label" parent="." unique_id=2125908935]
-offset_right = 100.0
-offset_bottom = 25.0
-
-[node name="health_label" type="Label" parent="." unique_id=81213067]
 offset_left = 100.0
 offset_right = 200.0
 offset_bottom = 25.0
 
-[node name="r_menace_meter" type="Label" parent="." unique_id=988876393]
+[node name="health_label" type="Label" parent="." unique_id=81213067]
+offset_right = 100.0
+offset_bottom = 25.0
+
+[node name="r_state" type="Label" parent="." unique_id=256774207]
 offset_left = 200.0
 offset_right = 300.0
 offset_bottom = 25.0
 
-[node name="r_hunt_meter" type="Label" parent="." unique_id=311330039]
-offset_left = 300.0
-offset_right = 400.0
+[node name="r_behavior" type="Label" parent="." unique_id=198753324]
+offset_left = 352.0
+offset_right = 452.0
 offset_bottom = 25.0
 
-[node name="r_status" type="Label" parent="." unique_id=256774207]
-offset_left = 400.0
-offset_right = 500.0
-offset_bottom = 25.0
+[node name="r_menace_meter" type="Label" parent="." unique_id=988876393]
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 50.0
+
+[node name="r_unease" type="Label" parent="." unique_id=533303503]
+offset_left = 100.0
+offset_top = 25.0
+offset_right = 200.0
+offset_bottom = 50.0
+
+[node name="player_peace" type="Label" parent="." unique_id=1141050393]
+offset_left = 200.0
+offset_top = 25.0
+offset_right = 300.0
+offset_bottom = 50.0

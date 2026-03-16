@@ -10,7 +10,7 @@
 script = ExtResource("1_qw60k")
 
 [node name="Player" parent="." unique_id=335188821 instance=ExtResource("2_8gbba")]
-position = Vector2(7834, 9846)
+position = Vector2(7736, 7467)
 
 [node name="Ronald" parent="." unique_id=2031652375 instance=ExtResource("4_5yls4")]
 z_index = 0

@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://depfxktoy4c7o" path="res://Scenes/Monster/senses.gd" id="5_y70n8"]
 [ext_resource type="AudioStream" uid="uid://dr8bo3x0jen0x" path="res://Sound Effects/MonsterSFX/eerieMusic.mp3" id="7_doqg5"]
 [ext_resource type="Script" uid="uid://b8wn3yp6xif4c" path="res://Scenes/Monster/behaviors.gd" id="7_li61u"]
-[ext_resource type="Texture2D" uid="uid://1or25yaboumy" path="res://Textures/Ship/overhead lamp.png" id="9_fmali"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nw00y"]
 radius = 0.0
@@ -53,12 +52,3 @@ stream = ExtResource("7_doqg5")
 volume_db = 5.0
 autoplay = true
 attenuation = 9.0
-
-[node name="flashlight_scatter" type="PointLight2D" parent="." unique_id=29377795]
-position = Vector2(3.0517578e-05, 0)
-scale = Vector2(0.7161836, 0.72044426)
-color = Color(1, 0, 0.0627451, 1)
-energy = 0.5
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("9_fmali")
