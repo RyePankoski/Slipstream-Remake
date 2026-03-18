@@ -8,17 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dvei8we12mmxk" path="res://Scenes/World/Ship Specific/door.tscn" id="5_adcqc"]
 [ext_resource type="PackedScene" uid="uid://d0cin75t3neaw" path="res://Scenes/World/objects/key_card.tscn" id="7_7staa"]
 [ext_resource type="Texture2D" uid="uid://cq8gwkkcqryds" path="res://Textures/Player/los light.png" id="7_fcotr"]
-
-[sub_resource type="GDScript" id="GDScript_adcqc"]
-script/source = "extends PointLight2D
-
-@export var flicker_speed: float = 1.0
-@export var flicker_intensity: float = 0.2
-@export var base_energy: float = 1.0
-
-func _process(delta):
-	energy = base_energy + randf_range(-flicker_intensity, flicker_intensity)
-"
+[ext_resource type="PackedScene" uid="uid://em3frkrag6r" path="res://Scenes/World/Ship Specific/tram_terminal.tscn" id="9_y0d6x"]
 
 [sub_resource type="GDScript" id="GDScript_7staa"]
 script/source = "extends Node
@@ -59,11 +49,21 @@ func _queue_next():
 	timer.start()
 "
 
+[sub_resource type="GDScript" id="GDScript_adcqc"]
+script/source = "extends PointLight2D
+
+@export var flicker_speed: float = 1.0
+@export var flicker_intensity: float = 0.2
+@export var base_energy: float = 1.0
+
+func _process(delta):
+	energy = base_energy + randf_range(-flicker_intensity, flicker_intensity)
+"
+
 [node name="World" type="Node2D" unique_id=564764427]
 z_index = -1
 
 [node name="Darkness layer" type="CanvasModulate" parent="." unique_id=1319627283]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Map" type="Node2D" parent="." unique_id=142656582]
@@ -74,201 +74,10 @@ position = Vector2(2, 0)
 [node name="main_map2" parent="Map" unique_id=427607445 instance=ExtResource("1_3rhlx")]
 position = Vector2(2, 0)
 
-[node name="Lights" type="Node2D" parent="." unique_id=96296232]
-
-[node name="reception" type="Node" parent="Lights" unique_id=2106032512]
-
-[node name="Reception glow" type="PointLight2D" parent="Lights/reception" unique_id=810067631]
-position = Vector2(8517.5, 9492.751)
-scale = Vector2(2.1550002, 0.9735008)
-energy = 0.2
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception glow3" type="PointLight2D" parent="Lights/reception" unique_id=1514584466]
-position = Vector2(8252.75, 8285.875)
-scale = Vector2(1.6445004, 1.4377505)
-energy = 0.2
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 1" type="PointLight2D" parent="Lights/reception" unique_id=698206160]
-light_mask = 495
-position = Vector2(7824.981, 9802.001)
-rotation = -3.1415927
-scale = Vector2(0.5391137, -0.6059265)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 18" type="PointLight2D" parent="Lights/reception" unique_id=1967558186]
-position = Vector2(15025, 10040)
-rotation = -3.1415927
-scale = Vector2(0.5391137, -0.6059265)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 17" type="PointLight2D" parent="Lights/reception" unique_id=1957200733]
-position = Vector2(476.30762, 361.51282)
-rotation = -3.1415927
-scale = Vector2(0.93665206, -0.19864434)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-texture_scale = 2.0
-
-[node name="Reception 3" type="PointLight2D" parent="Lights/reception" unique_id=214992033]
-position = Vector2(7892.8125, 9149.834)
-scale = Vector2(0.19837509, 0.29633304)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 5" type="PointLight2D" parent="Lights/reception" unique_id=1816475967]
-position = Vector2(7892.8125, 9149.834)
-scale = Vector2(0.19837509, 0.29633304)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 4" type="PointLight2D" parent="Lights/reception" unique_id=986200624]
-position = Vector2(8162.1563, 9153.167)
-scale = Vector2(0.3476877, 0.28566664)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 6" type="PointLight2D" parent="Lights/reception" unique_id=1018105887]
-position = Vector2(8432.078, 9187.417)
-scale = Vector2(0.19584392, 0.16683434)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 7" type="PointLight2D" parent="Lights/reception" unique_id=120179087]
-position = Vector2(8461.039, 9430.208)
-scale = Vector2(0.56392187, 0.13441764)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 12" type="PointLight2D" parent="Lights/reception" unique_id=732193744]
-position = Vector2(8284.02, 9586.6045)
-scale = Vector2(0.1839597, 0.19920903)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 13" type="PointLight2D" parent="Lights/reception" unique_id=2083275444]
-position = Vector2(8558.01, 9582.697)
-scale = Vector2(0.36398005, 0.19460388)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 14" type="PointLight2D" parent="Lights/reception" unique_id=1773759368]
-position = Vector2(8625.505, 9832.349)
-scale = Vector2(0.26699004, 0.29130146)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 8" type="PointLight2D" parent="Lights/reception" unique_id=1319841660]
-position = Vector2(8689.5205, 9185.6045)
-scale = Vector2(0.10896028, 0.3532086)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 9" type="PointLight2D" parent="Lights/reception" unique_id=357523386]
-position = Vector2(8906.759, 9068.802)
-scale = Vector2(0.3224807, 0.11960457)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 10" type="PointLight2D" parent="Lights/reception" unique_id=1964214284]
-position = Vector2(8911.88, 9472.099)
-scale = Vector2(0.32024035, 0.6758023)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 11" type="PointLight2D" parent="Lights/reception" unique_id=1878435900]
-position = Vector2(9163.44, 9921.95)
-scale = Vector2(0.82912046, 0.10990168)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 2" type="PointLight2D" parent="Lights/reception" unique_id=918801100]
-position = Vector2(8326.07, 9830.875)
-scale = Vector2(0.44482416, 0.4829158)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 15" type="PointLight2D" parent="Lights/reception" unique_id=13238594]
-position = Vector2(7889.294, 9553.7295)
-scale = Vector2(0.56541234, 0.12745771)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="Reception 16" type="PointLight2D" parent="Lights/reception" unique_id=1474477818]
-position = Vector2(8110.647, 9798.135)
-scale = Vector2(0.13470618, 0.35972947)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="PointLight2D3" type="PointLight2D" parent="Lights/reception" unique_id=1570269403]
-position = Vector2(7526.999, 8416.47)
-scale = Vector2(0.33487973, 2.87694)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="PointLight2D6" type="PointLight2D" parent="Lights/reception" unique_id=1859872467]
-position = Vector2(9140, 6283)
-scale = Vector2(0.33487973, 2.87694)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="PointLight2D4" type="PointLight2D" parent="Lights/reception" unique_id=1368615152]
-position = Vector2(7511.0005, 7464)
-scale = Vector2(3.7414076, 0.2920001)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="PointLight2D5" type="PointLight2D" parent="Lights/reception" unique_id=1359603933]
-position = Vector2(10268.5, 7470)
-scale = Vector2(3.973, 0.24799977)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-
-[node name="PointLight2D" type="PointLight2D" parent="Lights/reception" unique_id=860044492]
-position = Vector2(7525.5, 9621.499)
-scale = Vector2(0.16900045, 0.71300143)
-shadow_enabled = true
-shadow_item_cull_mask = 495
-texture = ExtResource("2_go701")
-script = SubResource("GDScript_adcqc")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Lights/reception/PointLight2D" unique_id=2023075451]
-stream = ExtResource("4_l1hd3")
-volume_db = -5.0
-autoplay = true
-attenuation = 8.0
-
 [node name="Tram" parent="." unique_id=1570427207 instance=ExtResource("1_fcotr")]
 light_mask = 129
 visibility_layer = 129
-position = Vector2(9137, 4961)
+position = Vector2(5009, 4960)
 
 [node name="Audio" type="Node2D" parent="." unique_id=189039800]
 
@@ -540,7 +349,7 @@ rotation = 1.5707964
 
 [node name="key_card" parent="Key Cards" unique_id=1706266206 instance=ExtResource("7_7staa")]
 z_index = 0
-position = Vector2(8265, 9579)
+position = Vector2(9497, 9930)
 key_id = 998
 
 [node name="key_card2" parent="Key Cards" unique_id=20294466 instance=ExtResource("7_7staa")]
@@ -560,3 +369,287 @@ position = Vector2(2, 0)
 position = Vector2(13059, 4959)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_fcotr")
+
+[node name="Terminals" type="Node" parent="." unique_id=1264027442]
+
+[node name="Tram terminal" parent="Terminals" unique_id=849150040 instance=ExtResource("9_y0d6x")]
+position = Vector2(8867, 5130)
+stop_number = 2
+
+[node name="Tram terminal7" parent="Terminals" unique_id=86494297 instance=ExtResource("9_y0d6x")]
+position = Vector2(12806, 5129)
+stop_number = 3
+
+[node name="Tram terminal8" parent="Terminals" unique_id=1438578809 instance=ExtResource("9_y0d6x")]
+position = Vector2(12802, 4785)
+rotation = 3.1415927
+stop_number = 3
+
+[node name="Tram terminal2" parent="Terminals" unique_id=1088608110 instance=ExtResource("9_y0d6x")]
+position = Vector2(8867, 4788)
+rotation = 3.1415927
+stop_number = 2
+
+[node name="Tram terminal3" parent="Terminals" unique_id=1894424038 instance=ExtResource("9_y0d6x")]
+position = Vector2(4740, 4791)
+rotation = 3.1415927
+stop_number = 1
+
+[node name="Tram terminal4" parent="Terminals" unique_id=1696814541 instance=ExtResource("9_y0d6x")]
+position = Vector2(4737, 5138)
+stop_number = 1
+
+[node name="Tram terminal5" parent="Terminals" unique_id=1525721007 instance=ExtResource("9_y0d6x")]
+position = Vector2(3109, 5130)
+
+[node name="Tram terminal6" parent="Terminals" unique_id=1806478053 instance=ExtResource("9_y0d6x")]
+position = Vector2(3105, 4788)
+rotation = 3.1415927
+
+[node name="Lights" type="Node2D" parent="." unique_id=96296232]
+
+[node name="reception" type="Node" parent="Lights" unique_id=2106032512]
+
+[node name="Reception glow" type="PointLight2D" parent="Lights/reception" unique_id=810067631]
+position = Vector2(8517.5, 9492.751)
+scale = Vector2(2.1550002, 0.9735008)
+energy = 0.2
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception glow3" type="PointLight2D" parent="Lights/reception" unique_id=1514584466]
+position = Vector2(8252.75, 8285.875)
+scale = Vector2(1.6445004, 1.4377505)
+energy = 0.2
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 1" type="PointLight2D" parent="Lights/reception" unique_id=698206160]
+light_mask = 495
+position = Vector2(7824.981, 9802.001)
+rotation = -3.1415927
+scale = Vector2(0.5391137, -0.6059265)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 18" type="PointLight2D" parent="Lights/reception" unique_id=1967558186]
+position = Vector2(15025, 10040)
+rotation = -3.1415927
+scale = Vector2(0.5391137, -0.6059265)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 17" type="PointLight2D" parent="Lights/reception" unique_id=1957200733]
+position = Vector2(476.30762, 361.51282)
+rotation = -3.1415927
+scale = Vector2(0.93665206, -0.19864434)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+texture_scale = 2.0
+
+[node name="Reception 3" type="PointLight2D" parent="Lights/reception" unique_id=214992033]
+position = Vector2(7892.8125, 9149.834)
+scale = Vector2(0.19837509, 0.29633304)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 5" type="PointLight2D" parent="Lights/reception" unique_id=1816475967]
+position = Vector2(7892.8125, 9149.834)
+scale = Vector2(0.19837509, 0.29633304)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 4" type="PointLight2D" parent="Lights/reception" unique_id=986200624]
+position = Vector2(8162.1563, 9153.167)
+scale = Vector2(0.3476877, 0.28566664)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 6" type="PointLight2D" parent="Lights/reception" unique_id=1018105887]
+position = Vector2(8432.078, 9187.417)
+scale = Vector2(0.19584392, 0.16683434)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 7" type="PointLight2D" parent="Lights/reception" unique_id=120179087]
+position = Vector2(8461.039, 9430.208)
+scale = Vector2(0.56392187, 0.13441764)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 12" type="PointLight2D" parent="Lights/reception" unique_id=732193744]
+position = Vector2(8284.02, 9586.6045)
+scale = Vector2(0.1839597, 0.19920903)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 13" type="PointLight2D" parent="Lights/reception" unique_id=2083275444]
+position = Vector2(8558.01, 9582.697)
+scale = Vector2(0.36398005, 0.19460388)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 14" type="PointLight2D" parent="Lights/reception" unique_id=1773759368]
+position = Vector2(8625.505, 9832.349)
+scale = Vector2(0.26699004, 0.29130146)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 8" type="PointLight2D" parent="Lights/reception" unique_id=1319841660]
+position = Vector2(8689.5205, 9185.6045)
+scale = Vector2(0.10896028, 0.3532086)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 9" type="PointLight2D" parent="Lights/reception" unique_id=357523386]
+position = Vector2(8906.759, 9068.802)
+scale = Vector2(0.3224807, 0.11960457)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 10" type="PointLight2D" parent="Lights/reception" unique_id=1964214284]
+position = Vector2(8911.88, 9472.099)
+scale = Vector2(0.32024035, 0.6758023)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 11" type="PointLight2D" parent="Lights/reception" unique_id=1878435900]
+position = Vector2(9163.44, 9921.95)
+scale = Vector2(0.82912046, 0.10990168)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 2" type="PointLight2D" parent="Lights/reception" unique_id=918801100]
+position = Vector2(8326.07, 9830.875)
+scale = Vector2(0.44482416, 0.4829158)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 15" type="PointLight2D" parent="Lights/reception" unique_id=13238594]
+position = Vector2(7889.294, 9553.7295)
+scale = Vector2(0.56541234, 0.12745771)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 16" type="PointLight2D" parent="Lights/reception" unique_id=1474477818]
+position = Vector2(8110.647, 9798.135)
+scale = Vector2(0.13470618, 0.35972947)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lights/reception" unique_id=1570269403]
+position = Vector2(7526.999, 8416.47)
+scale = Vector2(0.33487973, 2.87694)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Lights/reception" unique_id=1859872467]
+position = Vector2(9140, 6283)
+scale = Vector2(0.33487973, 2.87694)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lights/reception" unique_id=1368615152]
+position = Vector2(7511.0005, 7464)
+scale = Vector2(3.7414076, 0.2920001)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Lights/reception" unique_id=1359603933]
+position = Vector2(10268.5, 7470)
+scale = Vector2(3.973, 0.24799977)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights/reception" unique_id=860044492]
+position = Vector2(7525.5, 9621.499)
+scale = Vector2(0.16900045, 0.71300143)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+script = SubResource("GDScript_adcqc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Lights/reception/PointLight2D" unique_id=2023075451]
+stream = ExtResource("4_l1hd3")
+volume_db = -5.0
+autoplay = true
+attenuation = 8.0
+
+[node name="tramway" type="Node" parent="Lights" unique_id=1209216331]
+
+[node name="Reception 19" type="PointLight2D" parent="Lights/tramway" unique_id=1257419937]
+position = Vector2(8329.001, 4960)
+scale = Vector2(0.5062403, 0.44087183)
+energy = 0.2
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 20" type="PointLight2D" parent="Lights/tramway" unique_id=1581264950]
+position = Vector2(7754.001, 4958.9995)
+scale = Vector2(0.5062403, 0.44087183)
+energy = 0.2
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 21" type="PointLight2D" parent="Lights/tramway" unique_id=437238793]
+position = Vector2(7246.0005, 4960)
+scale = Vector2(0.5062403, 0.44087183)
+energy = 0.2
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 22" type="PointLight2D" parent="Lights/tramway" unique_id=1601448556]
+position = Vector2(6738.0005, 4959.9995)
+scale = Vector2(0.5062403, 0.44087183)
+energy = 0.2
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 23" type="PointLight2D" parent="Lights/tramway" unique_id=1923614672]
+position = Vector2(6229, 4958.9995)
+scale = Vector2(0.5062403, 0.44087183)
+energy = 0.2
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 24" type="PointLight2D" parent="Lights/tramway" unique_id=108995703]
+position = Vector2(5719.0005, 4958)
+scale = Vector2(0.5062403, 0.44087183)
+energy = 0.2
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")
+
+[node name="Reception 25" type="PointLight2D" parent="Lights/tramway" unique_id=582790496]
+position = Vector2(4271.0005, 4972.0005)
+scale = Vector2(0.64606, 0.56263727)
+shadow_enabled = true
+shadow_item_cull_mask = 495
+texture = ExtResource("2_go701")

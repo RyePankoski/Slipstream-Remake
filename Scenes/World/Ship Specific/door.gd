@@ -3,9 +3,12 @@ extends Node2D
 
 const SLIDE_DISTANCE = 128.0
 const SLIDE_DURATION = 0.5
+
+var closed_pos: Vector2
 var is_open = false
 var tween: Tween
-var closed_pos: Vector2
+
+
 @export var required_key_id: int = 0
 @export var locked = false:
 	set(value):

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://em3frkrag6r"]
+
+[ext_resource type="Script" uid="uid://b57bc5ix84n2r" path="res://Scenes/World/Ship Specific/tram_terminal.gd" id="1_20slp"]
+[ext_resource type="Texture2D" uid="uid://buxvnul445mbd" path="res://Textures/Ship/terminal.png" id="1_jaexs"]
+[ext_resource type="AudioStream" uid="uid://bi3wtti3ajjqc" path="res://Sound Effects/general/bell-tram.mp3" id="3_ij61p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqv6f"]
+
+[node name="Tram terminal" type="Node2D" unique_id=849150040]
+script = ExtResource("1_20slp")
+
+[node name="terminal_area" type="Area2D" parent="." unique_id=10087152]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="terminal_area" unique_id=829795800]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_vqv6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="terminal_area" unique_id=691218517]
+position = Vector2(-1.1368684e-13, -18.999998)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_jaexs")
+
+[node name="chime" type="AudioStreamPlayer2D" parent="." unique_id=1708211912]
+stream = ExtResource("3_ij61p")

@@ -2,7 +2,7 @@ extends Node2D
 
 var player: Node
 var stops: Array[Vector2] = [Vector2(3380, 4960),Vector2(5000, 4960), Vector2(9130, 4960), Vector2(13050, 4960)]
-var current_stop_index: int = 2  # start at the right stop
+var current_stop_index: int = 1  # start at the right stop
 var target_stop: Vector2
 var left: bool = false
 var right: bool = false
@@ -18,7 +18,7 @@ var speed = 0.0
 
 func _ready() -> void:
 	
-	global_position = Vector2(9130, 4960)
+	global_position = stops[1]
 	
 	$terminal_left.body_entered.connect(_on_terminal_left_entered)
 	$terminal_left.body_exited.connect(_on_terminal_left_exited)
@@ -49,6 +49,7 @@ func _process(delta):
 			in_transit = true
 		else:
 			print("No stop to the left")
+			
 	if player_at_right and Input.is_action_just_pressed("interact"):
 		if not in_transit:
 			_handle_lights()
