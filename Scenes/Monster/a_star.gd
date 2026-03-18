@@ -10,8 +10,8 @@ func _ready():
 	ronald = get_tree().root.get_node("Main/Ronald")
 	floor_map = get_tree().root.get_node("Main/World/Map/main_map/FloorLayer")
 	collision_map = get_tree().root.get_node("Main/World/Map/main_map/NavigationRegion2D/collisionMap")
-	print("floor_map: ", floor_map)
-	print("collision_map: ", collision_map)
+	#print("floor_map: ", floor_map)
+	#print("collision_map: ", collision_map)
 
 # Converts a world-space range in pixels to cell units.
 func _to_cell_range(range_px: float) -> int:

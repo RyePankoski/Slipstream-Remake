@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://dhg3j0fuatu6n" path="res://Scenes/Player/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dtnhb1bo11tka" path="res://Scenes/Monster/ronald.tscn" id="4_5yls4"]
 [ext_resource type="PackedScene" uid="uid://b08w7vevnwh4k" path="res://Scenes/World/meta/ai_director.tscn" id="4_p6jpk"]
+[ext_resource type="PackedScene" uid="uid://hac1kheclddl" path="res://Scenes/World/Ship Specific/ambient_noises.tscn" id="6_2a143"]
 
 [node name="Main" type="Node2D" unique_id=1961006506]
 script = ExtResource("1_qw60k")
 
 [node name="Player" parent="." unique_id=335188821 instance=ExtResource("2_8gbba")]
-position = Vector2(7736, 7467)
+position = Vector2(9014, 5160)
 
 [node name="Ronald" parent="." unique_id=2031652375 instance=ExtResource("4_5yls4")]
 z_index = 0
@@ -19,3 +20,5 @@ position = Vector2(7520, 7468)
 [node name="AI_Director" parent="." unique_id=1619704085 instance=ExtResource("4_p6jpk")]
 
 [node name="World" parent="." unique_id=564764427 instance=ExtResource("1_bo1nx")]
+
+[node name="Ambient_Noises" parent="." unique_id=330430133 instance=ExtResource("6_2a143")]

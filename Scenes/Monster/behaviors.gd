@@ -23,7 +23,7 @@ func enter_hunt(range: float = 500):
 func update_hunt(delta):
 	movement.follow_path(delta)
 	if movement.is_path_done():
-		print("Done, on to the next hunt point	")
+		#print("Done, on to the next hunt point	")
 		enter_hunt()
 
 func enter_flee():

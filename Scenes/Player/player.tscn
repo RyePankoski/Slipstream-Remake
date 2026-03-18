@@ -62,18 +62,24 @@ texture = ExtResource("9_gk6dx")
 
 [node name="Audio" type="Node2D" parent="." unique_id=1602260329]
 
-[node name="walk_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=710332561]
+[node name="movement" type="Node2D" parent="Audio" unique_id=1821580183]
+
+[node name="walk_sfx" type="AudioStreamPlayer2D" parent="Audio/movement" unique_id=710332561]
 stream = ExtResource("5_htcer")
 volume_db = 2.0
 
-[node name="run" type="AudioStreamPlayer2D" parent="Audio" unique_id=28345582]
+[node name="run" type="AudioStreamPlayer2D" parent="Audio/movement" unique_id=28345582]
 stream = ExtResource("6_dd0ac")
 volume_db = 3.0
 
-[node name="flashlight_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=966934072]
+[node name="gear" type="Node2D" parent="Audio" unique_id=1302692555]
+
+[node name="flashlight_sfx" type="AudioStreamPlayer2D" parent="Audio/gear" unique_id=966934072]
 stream = ExtResource("8_jlvik")
 
-[node name="generic_pickup" type="AudioStreamPlayer2D" parent="Audio" unique_id=1454888953]
+[node name="pickups" type="Node2D" parent="Audio" unique_id=63475788]
+
+[node name="keycard_sfx" type="AudioStreamPlayer2D" parent="Audio/pickups" unique_id=1214679368]
 stream = ExtResource("9_74mp2")
 
 [node name="player_body_sprites" type="Node2D" parent="." unique_id=1408487107]

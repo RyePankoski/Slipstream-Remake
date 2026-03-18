@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bomfudbdysrru"
+path="res://.godot/imported/hasin2004-machine-working-sound-244256.mp3-0ff5a403e549d84fa63dbc2a3e26597c.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/ship_noises/hasin2004-machine-working-sound-244256.mp3"
+dest_files=["res://.godot/imported/hasin2004-machine-working-sound-244256.mp3-0ff5a403e549d84fa63dbc2a3e26597c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

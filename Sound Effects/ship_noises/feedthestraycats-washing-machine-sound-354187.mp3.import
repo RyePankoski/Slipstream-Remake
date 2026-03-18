@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3ejmruowh80m"
+path="res://.godot/imported/feedthestraycats-washing-machine-sound-354187.mp3-c3fbec832128a60e46cc1e0a01571afa.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/ship_noises/feedthestraycats-washing-machine-sound-354187.mp3"
+dest_files=["res://.godot/imported/feedthestraycats-washing-machine-sound-354187.mp3-c3fbec832128a60e46cc1e0a01571afa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

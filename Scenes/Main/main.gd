@@ -6,7 +6,6 @@ var interactables = []
 @export var activation_radius: float = 600.0
 
 func _ready():
-	print(get_parent().get_children())
 	player = $Player
 	interactables = get_tree().get_nodes_in_group("interactables")
 	for obj in interactables:

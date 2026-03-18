@@ -1,24 +1,32 @@
 extends CharacterBody2D
 
 @onready var map_layer = $MapLayer
+@onready var keycard_sfx = $Audio/pickups/keycard_sfx
+@onready var walking_sfx = $Audio/movement/walk_sfx
+@onready var running_sfx = $Audio/movement/run
+@onready var flashlight_sfx = $Audio/gear/flashlight_sfx
 
 const SPEED := 200.0
 const SPRINT_MULTIPLIER := 2.0
+const MAX_WEIGHT: float = 20.0
+const MAX_BURDEN: int = 5
+
 var max_health = 100.0
 var health = 100.0
 var max_stamina = 100.0
 var stamina = 100.0
 var stamina_drain_rate = 0.2
 var stamina_regen_rate = 0.1
-var inventory: Array = []
 var map_open = false
-
 
 signal stamina_changed(new_value)
 signal health_changed(new_value)
 
 var monster_cam = false
-var item_type 
+
+var item_type
+var inventory: Array[Item] = []
+var keycards: Array[int] = []
 
 func _ready():
 	map_open = false
@@ -26,16 +34,16 @@ func _ready():
 	$HUD.setup(self)
 	add_to_group("player")
 	
+# player _input
 func _input(event):
 	if event.is_action_pressed("interact"):
 		for area in $interact_region.get_overlapping_areas():
 			if area.has_method("interact"):
-				item_type = area.interact(self)
-				if item_type == "key_card":
-					$Audio/generic_pickup.play()
+				var result = area.interact(self)
+				if result == "keycard":
+					keycard_sfx.play()
 				break
 		
-
 func _process(delta):
 	if Input.is_action_just_pressed("ui_focus_next"):
 		map_open = not map_open
@@ -60,7 +68,7 @@ func _handle_flashlight():
 	if Input.is_action_just_pressed("toggle flashlight"):
 		$flashlight/flashlight_cone.enabled = not $flashlight/flashlight_cone.enabled
 		$flashlight/flashlight_scatter.enabled = not $flashlight/flashlight_scatter.enabled
-		$Audio/flashlight_sfx.play()
+		flashlight_sfx.play()
 		
 func _handle_movement():
 	var direction = Vector2.ZERO
@@ -95,13 +103,28 @@ func _update_rotation(delta):
 func _update_audio(direction, sprint_factor):
 	if direction != Vector2.ZERO:
 		if sprint_factor > 1:
-			if not $Audio/run.playing:
-				$Audio/walk_sfx.stop()
-				$Audio/run.play()
+			if not running_sfx.playing:
+				walking_sfx.stop()
+				running_sfx.play()
 		else:
-			if not $Audio/walk_sfx.playing:
-				$Audio/run.stop()
-				$Audio/walk_sfx.play()
+			if not walking_sfx.playing:
+				running_sfx.stop()
+				walking_sfx.play()
 	else:
-		$Audio/walk_sfx.stop()
-		$Audio/run.stop()
+		walking_sfx.stop()
+		running_sfx.stop()
+		
+func total_weight() -> float:
+	return inventory.reduce(func(acc, item): return acc + item.weight, 0.0)
+
+func total_burden() -> int:
+	return inventory.reduce(func(acc, item): return acc + item.burden, 0)
+
+func can_carry(item: Item) -> bool:
+	return total_weight() + item.weight <= MAX_WEIGHT and total_burden() + item.burden <= MAX_BURDEN
+
+func pick_up(item: Item) -> bool:
+	if can_carry(item):
+		inventory.append(item)
+		return true
+	return false

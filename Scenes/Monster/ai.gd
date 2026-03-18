@@ -77,7 +77,7 @@ func _debug_prints(delta):
 	debug_timer += delta
 	if debug_timer >= 10.0:
 		debug_timer = 0.0
-		print("My state is: ", States.keys()[state], " My behavior is: ", Behavior_Set.keys()[behavior])
+		#print("My state is: ", States.keys()[state], " My behavior is: ", Behavior_Set.keys()[behavior])
 		
 func _emit_signals():
 	state_changed.emit(States.keys()[state])

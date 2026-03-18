@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvei8we12mmxk"]
 
-[ext_resource type="Script" uid="uid://cplk4du01v6wp" path="res://Scenes/World/door.gd" id="1_py0e7"]
+[ext_resource type="Script" uid="uid://cplk4du01v6wp" path="res://Scenes/World/Ship Specific/door.gd" id="1_py0e7"]
 [ext_resource type="AudioStream" uid="uid://b5ha2p76s0v6x" path="res://Sound Effects/general/openDoor.mp3" id="3_stphq"]
 [ext_resource type="AudioStream" uid="uid://n7jxkg657w1x" path="res://Sound Effects/general/doorClose.mp3" id="4_orjpq"]
 [ext_resource type="Texture2D" uid="uid://cn6iv4kmxwemp" path="res://Textures/Ship/door.png" id="4_stphq"]
@@ -59,9 +59,11 @@ texture = ExtResource("5_orjpq")
 
 [node name="open_door_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=977195462]
 stream = ExtResource("3_stphq")
+volume_db = -8.0
 
 [node name="door_close_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=517993823]
 stream = ExtResource("4_orjpq")
+volume_db = -8.0
 
 [node name="locked_sfx" type="AudioStreamPlayer2D" parent="Audio" unique_id=1999603692]
 stream = ExtResource("6_vo6ee")

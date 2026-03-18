@@ -18,30 +18,38 @@ func _ready():
 	_update_light()
 	
 func open_door():
-	if locked:
-		var player = get_tree().get_first_node_in_group("player")
-		if required_key_id in player.inventory:
-			locked = false
-			$Audio/unlock_sfx.play()
-			_update_light()
-		else:
-			$Audio/locked_sfx.play()
-			return
 	if is_open:
+		return	
+	check_for_key()
+	if locked:
+		$Audio/locked_sfx.play()
 		return
-	is_open = true
-	_slide(closed_pos + Vector2(0, SLIDE_DISTANCE))
-	$StaticBody2D/CollisionShape2D.disabled = true
-	$Audio/open_door_sfx.play()
 
+	_slide(closed_pos + Vector2(0, SLIDE_DISTANCE))
+	is_open = true
+	$lock_light.enabled = false
+	$Audio/open_door_sfx.play()
+	
+func check_for_key():
+	if not locked:
+		return
+	var player = get_tree().get_first_node_in_group("player")
+	if required_key_id in player.keycards:
+		locked = false
+		$Audio/unlock_sfx.play()
+		_update_light()
+	else:
+		$Audio/locked_sfx.play()
+	
 func close_door():
 	if not is_open:
 		return
+		
 	is_open = false
 	_slide(closed_pos)
-	$StaticBody2D/CollisionShape2D.disabled = false
+	
 	$Audio/door_close_sfx.play()
-
+	$lock_light.enabled = true
 
 func _slide(target: Vector2):
 	if tween:
@@ -54,7 +62,6 @@ func _on_detect_player_zone_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		open_door()
 		
-
 func _on_detect_player_zone_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		close_door()

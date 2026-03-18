@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bb1k3aq8q7abx"]
 
 [ext_resource type="PackedScene" uid="uid://bxk5jrbvuodnw" path="res://Map/Slipstream map/main_map.scn" id="1_3rhlx"]
-[ext_resource type="PackedScene" uid="uid://b5qxu670hljhg" path="res://Scenes/World/tram.tscn" id="1_fcotr"]
+[ext_resource type="PackedScene" uid="uid://b5qxu670hljhg" path="res://Scenes/World/Ship Specific/tram.tscn" id="1_fcotr"]
 [ext_resource type="Texture2D" uid="uid://1or25yaboumy" path="res://Textures/Ship/overhead lamp.png" id="2_go701"]
 [ext_resource type="AudioStream" uid="uid://devxoiltbhtn5" path="res://Sound Effects/Ambience/Ambience.mp3" id="3_3rhlx"]
 [ext_resource type="AudioStream" uid="uid://cvu4giqxx0yr7" path="res://Sound Effects/Ambience/Electricity Sound Effect.mp3" id="4_l1hd3"]
-[ext_resource type="PackedScene" uid="uid://dvei8we12mmxk" path="res://Scenes/World/door.tscn" id="5_adcqc"]
+[ext_resource type="PackedScene" uid="uid://dvei8we12mmxk" path="res://Scenes/World/Ship Specific/door.tscn" id="5_adcqc"]
 [ext_resource type="PackedScene" uid="uid://d0cin75t3neaw" path="res://Scenes/World/objects/key_card.tscn" id="7_7staa"]
 [ext_resource type="Texture2D" uid="uid://cq8gwkkcqryds" path="res://Textures/Player/los light.png" id="7_fcotr"]
 
@@ -47,9 +47,11 @@ func _ready():
 	_queue_next()
 
 func _play_announcement():
+	if announcements.is_empty():
+		_queue_next()
+		return
 	player.stream = announcements[randi() % announcements.size()]
 	player.play()
-	await player.finished
 	_queue_next()
 
 func _queue_next():
@@ -61,6 +63,7 @@ func _queue_next():
 z_index = -1
 
 [node name="Darkness layer" type="CanvasModulate" parent="." unique_id=1319627283]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Map" type="Node2D" parent="." unique_id=142656582]
@@ -537,7 +540,7 @@ rotation = 1.5707964
 
 [node name="key_card" parent="Key Cards" unique_id=1706266206 instance=ExtResource("7_7staa")]
 z_index = 0
-position = Vector2(9510, 9955)
+position = Vector2(8265, 9579)
 key_id = 998
 
 [node name="key_card2" parent="Key Cards" unique_id=20294466 instance=ExtResource("7_7staa")]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5qxu670hljhg"]
 
 [ext_resource type="Texture2D" uid="uid://c3smew6b0c71i" path="res://Textures/Ship/tram.png" id="1_7bp8f"]
-[ext_resource type="Script" uid="uid://cq42qfyxv8614" path="res://Scenes/World/tram.gd" id="1_jpkwx"]
+[ext_resource type="Script" uid="uid://cq42qfyxv8614" path="res://Scenes/World/Ship Specific/tram.gd" id="1_jpkwx"]
 [ext_resource type="Texture2D" uid="uid://buxvnul445mbd" path="res://Textures/Ship/terminal.png" id="3_02bbu"]
 [ext_resource type="Texture2D" uid="uid://iahwo4a41qec" path="res://Textures/Player/tram_light.png" id="4_jke6g"]
 [ext_resource type="Texture2D" uid="uid://1or25yaboumy" path="res://Textures/Ship/overhead lamp.png" id="5_74p75"]
